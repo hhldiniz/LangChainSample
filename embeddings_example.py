@@ -2,7 +2,7 @@ from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import OllamaEmbeddings
 
 embeddings = OllamaEmbeddings(
-    model="deepseek-r1",
+    model="vicuna:latest",
 )
 
 texts = [
@@ -20,7 +20,7 @@ vectorstore = InMemoryVectorStore.from_texts(
 retriever = vectorstore.as_retriever()
 
 # Retrieve the most similar text
-retrieved_documents = retriever.invoke("What is the best color ?")
+retrieved_documents = retriever.invoke("What is bad for the movies ?")
 
 # show the retrieved document's content
 print(retrieved_documents[0].page_content)
